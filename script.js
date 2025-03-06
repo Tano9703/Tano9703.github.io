@@ -1,3 +1,4 @@
+
 // Funciones para la calculadora
 function appendValue(value) {
     document.getElementById('calcDisplay').value += value;
@@ -20,6 +21,7 @@ function calcularCostos() {
     var productosDiv = document.getElementById('productos');
     var productos = productosDiv.getElementsByClassName('form-group');
     var costoTotal = 0;
+    var detalles = ''; // Para almacenar el detalle de cada operación
 
     for (var i = 1; i <= productos.length / 4; i++) {
         var cantidad = parseFloat(document.getElementById('cantidad' + i).value);
@@ -32,13 +34,20 @@ function calcularCostos() {
                 costoProducto = (cantidad / 1000) * precio;
             }
             costoTotal += costoProducto;
+
+            // Agregar el detalle de la operación
+            detalles += `<p>Producto ${i}: ${cantidad} ${unidad} x $${precio} = $${costoProducto.toFixed(2)}</p>`;
         } else {
             alert("Por favor, ingresa valores válidos para todos los productos.");
             return;
         }
     }
 
-    document.getElementById('costosResultados').innerHTML = `<p><strong>Costo Total:</strong> $${costoTotal.toFixed(2)}</p>`;
+    // Mostrar el detalle de todas las operaciones y el costo total
+    document.getElementById('costosResultados').innerHTML = `
+        <div>${detalles}</div>
+        <p id="costoTotal" class="costoTotal"><strong>Costo Total:</strong> $${costoTotal.toFixed(2)}</p>
+    `;
 }
 
 document.getElementById('agregarProducto').addEventListener('click', function () {

@@ -114,3 +114,10 @@ img {
     max-width: 100%; /* Permite que las imágenes se ajusten automáticamente */
     height: auto; /* Mantiene la proporción */
 }
+.costoTotal {
+    font-size: 24px; /* Aumenta el tamaño de la fuente del costo total */
+    font-weight: bold;
+    color:rgb(0, 0, 0); /* Color opcional para resaltar el costo total */
+    margin-top: 20px; /* Espaciado para que no se quede pegado al detalle */
+}
+
