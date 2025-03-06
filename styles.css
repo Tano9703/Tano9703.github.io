@@ -1,47 +1,50 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
+/* Asegura que el body ocupe toda la pantalla */
+body, html {
+    height: 100%;
+    margin: 0;
 }
 
+/* Contenedor para dividir la pantalla en dos partes */
 .contenedor {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-   
-    width: 100%; /* Hace que el contenedor ocupe todo el ancho de la pantalla */
-    padding: 20px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    height: 100vh; /* Ocupa toda la pantalla */
 }
 
+/* Estilo para el formulario (mitad izquierda) */
 .formulario {
-    width: 70%; /* Ahora ocupa el 70% del contenedor */
+    width: 50%; /* El formulario ocupa el 50% de la pantalla */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
 }
 
+/* Estilo para la calculadora (mitad derecha) */
 .calculadora {
-    width: 30%; /* Ahora ocupa el 30% del contenedor */
-    padding: 20px;
-    background-color: #f9f9f9; /* Color de fondo más suave */
-    border-radius: 10px; /* Bordes más redondeados */
-    text-align: center;
-    border: 2px solid #ddd; /* Borde suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
-    transition: all 0.3s ease; /* Transición suave */
+    
+    width: 45%; /* La calculadora ocupa el 45% restante de la pantalla */
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #f4f4f4; /* Fondo suave */
+    border-radius: 20px;
+    margin-top: 80px; /* Despega la calculadora de la parte superior */
 }
 
-
+/* Estilo para el display de la calculadora */
 #calcDisplay {
-    width: 80%;
-    padding: 20px;
-    font-size: 25px;
+    width: 100%;
+    padding: 15px;
+    font-size: 40px;
     margin-bottom: 20px;
-    background-color: #222; /* Fondo oscuro para el display */
-    color: #fff; /* Texto blanco */
-    border: none;
+    background-color: white; /* Fondo oscuro */
+    color: black; /* Texto blanco */
+    border: radius;
     border-radius: 5px;
     text-align: right;
 }
 
+/* Estilo para los botones de la calculadora */
 .botones {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -52,7 +55,7 @@ body {
     padding: 15px;
     font-size: 18px;
     cursor: pointer;
-    background-color: #4CAF50; /* Color de fondo atractivo */
+    background-color:rgb(28, 42, 228); /* Color de fondo atractivo */
     color: white;
     border: none;
     border-radius: 10px;
@@ -60,99 +63,10 @@ body {
 }
 
 .botones button:hover {
-    background-color: #45a049; /* Cambio de color al pasar el ratón */
+    background-color:rgb(0, 0, 0); /* Cambio de color al pasar el ratón */
     transform: translateY(-2px); /* Efecto de levantar el botón */
 }
 
 .botones button:active {
     transform: translateY(2px); /* Efecto de hundir el botón al hacer clic */
 }
-
-/* Estilos adicionales para el formulario */
-
-.producto-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.producto-container input,
-.producto-container select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc; /* Borde más suave */
-}
-
-#productos {
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 10px;
-    cursor: pointer;
-    margin: 5px;
-    background-color: #007BFF; /* Color atractivo para los botones */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color: #0056b3; /* Cambio de color al pasar el ratón */
-    transform: translateY(-2px); /* Efecto de levantar el botón */
-}
-
-button:active {
-    transform: translateY(2px); /* Efecto de hundir el botón al hacer clic */
-}
-
-/* Media Queries para dispositivos más pequeños */
-
-@media (max-width: 768px) {
-    .contenedor {
-        flex-direction: column; /* Los elementos se apilan verticalmente en pantallas más pequeñas */
-        width: 100%; /* Asegura que el contenedor ocupe el 100% en pantallas pequeñas */
-    }
-
-    .formulario,
-    .calculadora {
-        width: 100%; /* En pantallas más pequeñas, ambos elementos ocupan todo el ancho */
-        margin-bottom: 20px; /* Espacio entre el formulario y la calculadora */
-    }
-
-    .producto-container {
-        flex-direction: column; /* Los inputs se apilan en pantallas pequeñas */
-    }
-
-    #calcDisplay {
-        width: 100%; /* El campo de texto ocupa el 100% del ancho */
-    }
-
-    .botones {
-        grid-template-columns: repeat(3, 1fr); /* Menos botones por fila en pantallas pequeñas */
-    }
-}
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 24px; /* Reducción del tamaño de la fuente para pantallas más pequeñas */
-    }
-
-    button {
-        padding: 8px; /* Botones un poco más pequeños */
-        font-size: 14px; /* Fuente de los botones más pequeña */
-    }
-
-    #calcDisplay {
-        font-size: 16px; /* Fuente del display de la calculadora más pequeña */
-    }
-
-    .botones button {
-        font-size: 14px; /* Fuente más pequeña para los botones */
-    }
-}
-
-    

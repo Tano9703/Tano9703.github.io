@@ -4,50 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculador de Costos</title>
+    <!-- Enlazamos Bootstrap 4 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h2>Calculador de Costos</h2>
-
     <div class="contenedor">
-        <!-- Sección del formulario -->
+        <!-- Formulario (mitad izquierda) -->
         <div class="formulario">
+            <h2 class="text-center btn-success rounded p-2">CALCULADOR DE COSTOS</h2>
+            <br>
             <form id="costForm">
-                <div id="productos"></div>
-                <button type="button" id="agregarProducto">Calcular otro producto</button>
-                <button type="submit">Calcular costos</button>
+                <div id="productos">
+                    <!-- Los campos de productos se agregarán aquí dinámicamente -->
+                    <div class="form-group">
+                        <label for="producto1">PRODUCTO</label>
+                        <input type="text" class="form-control" id="producto1" placeholder="Nombre del producto">
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad1">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad1" placeholder="Cantidad utilizada">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio1">Precio</label>
+                        <input type="number" class="form-control" id="precio1" placeholder="Precio por unidad">
+                    </div>
+                    <div class="form-group">
+                        <label for="unidad1">Unidad</label>
+                        <select class="form-control" id="unidad1">
+                            <option value="kg">Kilogramos (kg)</option>
+                            <option value="g">Gramos (g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" id="agregarProducto">Agregar otro producto</button>
+                <button type="submit" class="btn btn-danger mt-3  ">Calcular costos</button>
             </form>
-
-            <h3>Resultados:</h3>
+            <h3 class="mt-4">Resultados:</h3>
             <div id="costosResultados"></div>
         </div>
 
-        <!-- Sección de la calculadora -->
-        <div class="calculadora">
-            <h3>Mini Calculadora</h3>
-            <input type="text" id="calcDisplay" disabled>
+        <!-- Calculadora (mitad derecha) -->
+        <div class="calculadora ml-auto">
+            <h3 class="text-center btn-primary rounded p-2">CALCULADORA</h3>
+            <input type="text" class="form-control mb-3" id="calcDisplay" readonly>
             <div class="botones">
-                <button onclick="calcInput('7')">7</button>
-                <button onclick="calcInput('8')">8</button>
-                <button onclick="calcInput('9')">9</button>
-                <button onclick="calcInput('+')">+</button>
-                <button onclick="calcInput('4')">4</button>
-                <button onclick="calcInput('5')">5</button>
-                <button onclick="calcInput('6')">6</button>
-                <button onclick="calcInput('-')">-</button>
-                <button onclick="calcInput('1')">1</button>
-                <button onclick="calcInput('2')">2</button>
-                <button onclick="calcInput('3')">3</button>
-                <button onclick="calcInput('*')">*</button>
-                <button onclick="calcInput('0')">0</button>
-                <button onclick="calcClear()">C</button>
-                <button onclick="calcCalculate()">=</button>
-                <button onclick="calcInput('/')">/</button>
+                <button class="btn btn-secondary" onclick="appendValue('1')">1</button>
+                <button class="btn btn-secondary" onclick="appendValue('2')">2</button>
+                <button class="btn btn-secondary" onclick="appendValue('3')">3</button>
+                <button class="btn btn-secondary" onclick="appendValue('+')">+</button>
+                <button class="btn btn-secondary" onclick="appendValue('4')">4</button>
+                <button class="btn btn-secondary" onclick="appendValue('5')">5</button>
+                <button class="btn btn-secondary" onclick="appendValue('6')">6</button>
+                <button class="btn btn-secondary" onclick="appendValue('-')">-</button>
+                <button class="btn btn-secondary" onclick="appendValue('7')">7</button>
+                <button class="btn btn-secondary" onclick="appendValue('8')">8</button>
+                <button class="btn btn-secondary" onclick="appendValue('9')">9</button>
+                <button class="btn btn-secondary" onclick="appendValue('*')">x</button>
+                <button class="btn btn-secondary" onclick="appendValue('0')">0</button>
+                <button class="btn btn-secondary" onclick="clearDisplay()">C</button>
+                <button class="btn btn-secondary" onclick="calculateResult()">=</button>
+                <button class="btn btn-secondary" onclick="appendValue('/')">÷</button>
             </div>
         </div>
     </div>
 
+    <!-- Script de Bootstrap y JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
