@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculador de Costos</title>
-    <!-- Enlazamos Bootstrap 4 -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="contenedor">
-        <!-- Formulario (mitad izquierda) -->
         <div class="formulario">
             <h2 class="text-center btn-success rounded p-2">CALCULADOR DE COSTOS</h2>
             <br>
             <form id="costForm">
                 <div id="productos">
-                    <!-- Los campos de productos se agregarán aquí dinámicamente -->
-                    <div class="form-group">
+                    <div class="form-group text-center">
                         <label for="producto1">PRODUCTO</label>
                         <input type="text" class="form-control" id="producto1" placeholder="Nombre del producto">
                     </div>
@@ -35,17 +32,17 @@
                         <select class="form-control" id="unidad1">
                             <option value="kg">Kilogramos (kg)</option>
                             <option value="g">Gramos (g)</option>
+                            <option value="unidad">Unidad</option>
                         </select>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary mt-3" id="agregarProducto">Agregar otro producto</button>
-                <button type="submit" class="btn btn-danger mt-3  ">Calcular costos</button>
+                <button type="submit" class="btn btn-danger mt-3">Calcular costos</button>
             </form>
-            <h3 class="mt-4">Resultados:</h3>
+            <h3 class="mt-4 btn-success text-center rounded p-2">RESULTADOS:</h3>
             <div id="costosResultados"></div>
         </div>
 
-        <!-- Calculadora (mitad derecha) -->
         <div class="calculadora ml-auto">
             <h3 class="text-center btn-primary rounded p-2">CALCULADORA</h3>
             <input type="text" class="form-control mb-3" id="calcDisplay" readonly>
@@ -63,14 +60,13 @@
                 <button class="btn btn-secondary" onclick="appendValue('9')">9</button>
                 <button class="btn btn-secondary" onclick="appendValue('*')">x</button>
                 <button class="btn btn-secondary" onclick="appendValue('0')">0</button>
-                <button class="btn btn-secondary" onclick="clearDisplay()">C</button>
+                <button class="btn btn-danger" onclick="clearDisplay()">C</button>
                 <button class="btn btn-secondary" onclick="calculateResult()">=</button>
                 <button class="btn btn-secondary" onclick="appendValue('/')">÷</button>
             </div>
         </div>
     </div>
 
-    <!-- Script de Bootstrap y JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
