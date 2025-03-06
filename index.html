@@ -19,11 +19,11 @@
                 <div id="productos">
                     <div class="form-group text-center btn-warning rounded p-2">
                         <label for="producto1">PRODUCTO 1</label>
-                        <input type="text" class="form-control" id="producto1" placeholder="">
+                        <input type="text" class="form-control" id="producto1" placeholder="Nombre del producto">
                     </div>
                     <div class="form-group">
                         <label for="cantidad1">Cantidad</label>
-                        <input type="number" class="form-control" id="cantidad1" placeholder="">
+                        <input type="number" class="form-control" id="cantidad1" placeholder="Cantidad" step="any">
                     </div>
                     <div class="form-group">
                         <label for="unidad1">Unidad</label>
@@ -35,11 +35,11 @@
                     </div>
                     <div class="form-group">
                         <label for="precio1">Precio</label>
-                        <input type="number" class="form-control" id="precio1" placeholder="">
+                        <input type="number" class="form-control" id="precio1" placeholder="Precio" step="any">
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary mt-3" id="agregarProducto">AGREGAR</button>
-                <button type="submit" class="btn btn-danger  mt-3">CALCULAR</button>
+                <button type="submit" class="btn btn-danger mt-3">CALCULAR</button>
             </form>
             <h3 class="mt-4 btn-success text-center rounded p-2">RESULTADOS:</h3>
             <div id="costosResultados"></div>
@@ -62,9 +62,10 @@
                 <button class="btn btn-secondary" onclick="appendValue('9')">9</button>
                 <button class="btn btn-secondary" onclick="appendValue('*')">x</button>
                 <button class="btn btn-secondary" onclick="appendValue('0')">0</button>
+                <button class="btn btn-secondary" onclick="appendValue('.')">,</button>
                 <button class="btn btn-primary" onclick="calculateResult()">=</button>
-                <button class="btn btn-danger" onclick="clearDisplay()">C</button>
                 <button class="btn btn-secondary" onclick="appendValue('/')">÷</button>
+                <button class="btn btn-danger btn-block" onclick="clearDisplay()">C</button>
             </div>
         </div>
     </div>

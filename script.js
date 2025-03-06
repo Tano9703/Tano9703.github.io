@@ -1,4 +1,3 @@
-
 // Funciones para la calculadora
 function appendValue(value) {
     document.getElementById('calcDisplay').value += value;
@@ -29,8 +28,8 @@ function calcularCostos() {
     var detalles = '';
 
     for (var i = 1; i <= productos.length / 4; i++) {
-        var cantidad = parseFloat(document.getElementById('cantidad' + i).value);
-        var precio = parseFloat(document.getElementById('precio' + i).value);
+        var cantidad = parseFloat(document.getElementById('cantidad' + i).value.replace(',', '.'));
+        var precio = parseFloat(document.getElementById('precio' + i).value.replace(',', '.'));
         var unidad = document.getElementById('unidad' + i).value;
 
         if (!isNaN(cantidad) && !isNaN(precio) && cantidad > 0 && precio > 0) {
@@ -75,7 +74,7 @@ document.getElementById('agregarProducto').addEventListener('click', function ()
         </div>
         <div class="form-group">
             <label for="cantidad${newProductIndex}">Cantidad</label>
-            <input type="number" class="form-control" id="cantidad${newProductIndex}" placeholder="Cantidad">
+            <input type="number" class="form-control" id="cantidad${newProductIndex}" placeholder="Cantidad" step="any">
         </div>
         <div class="form-group">
             <label for="unidad${newProductIndex}">Unidad</label>
@@ -84,10 +83,10 @@ document.getElementById('agregarProducto').addEventListener('click', function ()
                 <option value="g">Gramos (g)</option>
                 <option value="unidad">Unidad</option>
             </select>
-            <div class="form-group">
-            <label for="precio${newProductIndex}">Precio</label>
-            <input type="number" class="form-control" id="precio${newProductIndex}" placeholder="Precio">
         </div>
+        <div class="form-group">
+            <label for="precio${newProductIndex}">Precio</label>
+            <input type="number" class="form-control" id="precio${newProductIndex}" placeholder="Precio" step="any">
         </div>`;
     productosDiv.insertAdjacentHTML('beforeend', newProductHTML);
 });
