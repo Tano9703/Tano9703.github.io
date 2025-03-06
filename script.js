@@ -13,7 +13,12 @@ function calculateResult() {
     try {
         display.value = eval(display.value);
     } catch (e) {
-        display.value = 'Error';
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Operación inválida',
+        });
+        display.value = '';
     }
 }
 
@@ -21,7 +26,7 @@ function calcularCostos() {
     var productosDiv = document.getElementById('productos');
     var productos = productosDiv.getElementsByClassName('form-group');
     var costoTotal = 0;
-    var detalles = ''; // Para almacenar el detalle de cada operación
+    var detalles = '';
 
     for (var i = 1; i <= productos.length / 4; i++) {
         var cantidad = parseFloat(document.getElementById('cantidad' + i).value);
@@ -30,24 +35,34 @@ function calcularCostos() {
 
         if (!isNaN(cantidad) && !isNaN(precio) && cantidad > 0 && precio > 0) {
             var costoProducto = cantidad * precio;
+
             if (unidad === 'g') {
-                costoProducto = (cantidad / 1000) * precio;
+                costoProducto = cantidad * precio; // Precio directo por gramo
             }
+
             costoTotal += costoProducto;
 
-            // Agregar el detalle de la operación
             detalles += `<p>Producto ${i}: ${cantidad} ${unidad} x $${precio} = $${costoProducto.toFixed(2)}</p>`;
         } else {
-            alert("Por favor, ingresa valores válidos para todos los productos.");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Datos inválidos',
+                text: 'Por favor, completa todos los campos con valores válidos.',
+            });
             return;
         }
     }
 
-    // Mostrar el detalle de todas las operaciones y el costo total
     document.getElementById('costosResultados').innerHTML = `
         <div>${detalles}</div>
         <p id="costoTotal" class="costoTotal"><strong>Costo Total:</strong> $${costoTotal.toFixed(2)}</p>
     `;
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Cálculo exitoso',
+        text: `El costo total es $${costoTotal.toFixed(2)}`,
+    });
 }
 
 document.getElementById('agregarProducto').addEventListener('click', function () {
@@ -63,16 +78,16 @@ document.getElementById('agregarProducto').addEventListener('click', function ()
             <input type="number" class="form-control" id="cantidad${newProductIndex}" placeholder="Cantidad">
         </div>
         <div class="form-group">
-            <label for="precio${newProductIndex}">Precio</label>
-            <input type="number" class="form-control" id="precio${newProductIndex}" placeholder="Precio">
-        </div>
-        <div class="form-group">
             <label for="unidad${newProductIndex}">Unidad</label>
             <select class="form-control" id="unidad${newProductIndex}">
                 <option value="kg">Kilogramos (kg)</option>
                 <option value="g">Gramos (g)</option>
                 <option value="unidad">Unidad</option>
             </select>
+            <div class="form-group">
+            <label for="precio${newProductIndex}">Precio</label>
+            <input type="number" class="form-control" id="precio${newProductIndex}" placeholder="Precio">
+        </div>
         </div>`;
     productosDiv.insertAdjacentHTML('beforeend', newProductHTML);
 });
