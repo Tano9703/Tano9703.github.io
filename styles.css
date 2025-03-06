@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -67,3 +68,74 @@ button {
     cursor: pointer;
 }
 
+=======
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background: red;
+}
+
+.formulario {
+    width: 60%;
+}
+
+.producto-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.producto-container input,
+.producto-container select {
+    padding: 5px;
+}
+
+#productos {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Estilos de la calculadora */
+.calculadora {
+    width: 200px;
+    border: 2px solid #333;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+#calcDisplay {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
+
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.botones button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+>>>>>>> 5d0c20a855f41dec09714838add32537d1ca0a81
