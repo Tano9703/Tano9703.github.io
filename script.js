@@ -54,7 +54,7 @@ document.getElementById('agregarProducto').addEventListener('click', function ()
     var productosDiv = document.getElementById('productos');
     var newProductIndex = productosDiv.getElementsByClassName('form-group').length / 4 + 1;
     var newProductHTML = `
-        <div class="form-group text-center">
+        <div class="form-group text-center btn-warning rounded p-2">
             <label for="producto${newProductIndex}">PRODUCTO ${newProductIndex}</label>
             <input type="text" class="form-control" id="producto${newProductIndex}" placeholder="Nombre del producto">
         </div>
